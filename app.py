@@ -12,19 +12,20 @@ import functools
 @asyncio.coroutine
 def hello1():
     print("hello world1 (%s)"  % threading.current_thread())
-    # r = yield from asyncio.sleep(1)
+    r = yield from asyncio.sleep(1)
     print("hello end1 (%s)"  % threading.current_thread())
 
 @asyncio.coroutine
 def hello2():
     print("hello world2 (%s)"  % threading.current_thread())
-    # r = yield from asyncio.sleep(2)
+    r = yield from asyncio.sleep(2)
     print("hello end2 (%s)"  % threading.current_thread())
 
 # 获取evenloop
 loop = asyncio.get_event_loop()
 # 两个coroutine是由同一个线程并发执行的。
 tasks = [hello2(), hello1()]
+print('---------------')
 #执行coruntine
 loop.run_until_complete(asyncio.wait(tasks))
 loop.close()
@@ -46,7 +47,9 @@ for index,item  in enumerate(arr):
         'index: %d,  value: %s' % (index, item)
     )
 print()
+
 arr2 = ('ab', 'bc', 'cd')
+
 # 元组的forin循环变量为元素本身
 for item in arr2:
     print(item)
@@ -84,3 +87,37 @@ for ch in enumerate('uvw'):
 from collections import Iterable
 
 print('isinstance: %s'  %  isinstance('abc', Iterable))
+
+
+from sklearn import datasets
+# iris = datasets.load_iris()
+# digits = datasets.load_digits()
+# print(digits.data)
+
+
+
+import time
+print('localTime: ', time.localtime(time.time()));
+print(time.localtime(time.time()))
+
+tup = ('physics', 'chemistry', 1997, 2000);
+
+print(tup);
+
+tup2 = tup * 2
+print('tup2: ', tup2)
+# del tup;
+# print("After deleting tup : ")
+# print(tup);
+
+
+def printMM(*args):
+    for var in args:
+        print('var', var)
+
+
+printMM('a', 1, 2)
+
+
+sum = lambda arg1, *args: print(arg1, args);
+sum('11', '22', 33)
