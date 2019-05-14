@@ -15,18 +15,21 @@ def my_abs(x):
         return None
 
 print(my_abs(-11))
+print('\n')
 
 def power(x, n = 2):
     return x * n
 
 print(power(10))
+print(power(10, 3), '\n')
 
 def enroll(name, age, city = 'beijing', sex = 'man'):
     print(
         'name: ', name,
         '\nage: ', age,
         '\ncity: ', city,
-        '\nsex: ', sex
+        '\nsex: ', sex,
+        '\n'
     )
 
 enroll(
@@ -309,3 +312,7 @@ def kka(args):
     print('_kkkk_______: %s' %args)
 
 kka('iiiiiiii')
+
+import tensorflow as tf
+
+
